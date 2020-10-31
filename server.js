@@ -8,9 +8,11 @@ app.use(bodyParser.json());
 
 //Usuarios
 app.post('/users', autenticationAdmin, usersController.createUser);
-app.put('/users/:email', autenticationAdmin, usersController.updateUser);
+app.put('/admin/users/:email', autenticationAdmin, usersController.updateUser);
 app.patch('/setAdmin/:email', autenticationAdmin, usersController.setAdmin);
 app.get('/users', autenticationAdmin, usersController.getAllUsers);
+app.get('/users/:userId', autentication, usersController.getUserById);
+app.get('/admin/users/:email', autenticationAdmin, usersController.getUser);
 app.post('/login', usersController.login);
 app.delete('/users/:userId', autenticationAdmin, usersController.deleteUser);
 
@@ -29,7 +31,6 @@ app.post('/orders', autentication, ordersController.createOrder);
 app.put('/orders/:orderId', autenticationAdmin, ordersController.updateOrder);
 app.patch('/orders/status/:orderId', autenticationAdmin, ordersController.updateOrderStatus);
 app.delete('/orders/:orderId', autenticationAdmin, ordersController.deleteOrder)
-////app.get('/orders/historialStates/:orderId', autenticationAdmin, ordersController.getStates)
 
 app.listen('3010', () => {
     console.log("server corriendo en el puerto 3010")
