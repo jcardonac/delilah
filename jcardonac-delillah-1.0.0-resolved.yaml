@@ -1,0 +1,581 @@
+---
+swagger: 2.0
+info:
+  version: 1.0.0
+  title: Delilah API
+  contact:
+    email: jcardonac@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /jcardonac/delillah/1.0.0
+tags:
+- name: public
+  description: Operaciones disponibles para clientes de la app
+- name: admin
+  description: Operaciones disponibles sólo apra admins
+schemes:
+- https
+paths:
+  /users/:
+    get:
+      tags:
+      - admin
+      summary: Busqueda usuario por email
+      description: |
+        Encuentra un usuario con un email determinado.
+      operationId: busquedaUsuario
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        "400":
+          description: bad input parameter
+    post:
+      tags:
+      - public
+      summary: Nuevo usuario
+      description: Crear un nuevo usuario
+      operationId: addUser
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: user
+        description: Estructura usuario
+        required: false
+        schema:
+          $ref: '#/definitions/User'
+      responses:
+        "201":
+          description: usuario creado
+        "400":
+          description: entrada no válida, objeto no válido
+        "409":
+          description: ya existe un usuario con este email
+  /users/{userId}:
+    get:
+      tags:
+      - public
+      summary: Busqueda usuario por id
+      description: |
+        Encuentra un usuario con un id determinado.
+      operationId: busquedaUsuariobyId
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        description: ID of pet to fetch
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        "400":
+          description: bad input parameter
+    delete:
+      tags:
+      - admin
+      summary: Borrar usuario por id
+      description: |
+        Encuentra un usuario con un id determinado y lo borra.
+      operationId: deleteUsuariobyId
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        description: ID of pet to fetch
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: string
+        "400":
+          description: bad input parameter
+  /admin/users/{email}:
+    get:
+      tags:
+      - admin
+      summary: Busqueda usuario por email
+      description: |
+        Encuentra un usuario con un email determinado.
+      operationId: busquedaUsuariobyEmail
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: path
+        description: ID of pet to fetch
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            $ref: '#/definitions/User'
+        "400":
+          description: bad input parameter
+    put:
+      tags:
+      - admin
+      summary: Actualizar usuario por email
+      description: |
+        Encuentra un usuario con un email determinado y lo actualiza.
+      operationId: updatedUser
+      produces:
+      - application/json
+      parameters:
+      - name: email
+        in: path
+        description: ID of pet to fetch
+        required: true
+        type: integer
+        format: int64
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            $ref: '#/definitions/User'
+        "400":
+          description: bad input parameter
+  /login:
+    post:
+      tags:
+      - public
+      - admin
+      summary: Login Usuario
+      description: Login usuario
+      operationId: loginUser
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: user
+        description: Estructura usuario
+        required: false
+        schema:
+          type: object
+          example:
+            email: email@example.com
+            password: 54321
+      responses:
+        "201":
+          description: Usuario autenticado
+          schema:
+            type: object
+            example:
+              token: fasdfasdfas-sfksdfasdkl
+              userType: admin
+        "400":
+          description: entrada no válida, objeto no válido
+  /products:
+    get:
+      tags:
+      - public
+      summary: Consultar productos
+      description: Consultar productos
+      operationId: getAvailableProducts
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        "400":
+          description: entrada no válida, objeto no válido
+  /admin/products:
+    get:
+      tags:
+      - admin
+      summary: Consultar productos
+      description: Consultar productos
+      operationId: getAllProducts
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+        "400":
+          description: entrada no válida, objeto no válido
+    post:
+      tags:
+      - admin
+      summary: Nuevo producto
+      description: Crear un nuevo producto
+      operationId: addProduct
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: user
+        description: Estructura usuario
+        required: false
+        schema:
+          $ref: '#/definitions/Product'
+      responses:
+        "201":
+          description: producto creado
+        "400":
+          description: entrada no válida, objeto no válido
+  /admin/products/{productId}:
+    put:
+      tags:
+      - admin
+      summary: Actualizar producto
+      description: Actualizar producto
+      operationId: updateProduct
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        type: number
+      responses:
+        "201":
+          description: producto actualizado
+        "400":
+          description: entrada no válida, objeto no válido
+    delete:
+      tags:
+      - admin
+      summary: Borrar producto
+      description: Actualizar producto
+      operationId: deleteProduct
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: productId
+        in: path
+        required: true
+        type: number
+      responses:
+        "201":
+          description: producto borrado
+        "400":
+          description: entrada no válida, objeto no válido
+  /orders:
+    get:
+      tags:
+      - admin
+      summary: Consultar ordenes
+      operationId: getOrders
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+        "400":
+          description: entrada no válida, objeto no válido
+    post:
+      tags:
+      - admin
+      - public
+      summary: Nueva orden
+      description: Crear una nueva orden
+      operationId: createOrders
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: newOrder
+        description: Estructura orden
+        required: false
+        schema:
+          $ref: '#/definitions/NewOrder'
+      responses:
+        "201":
+          description: orden creada
+          schema:
+            type: object
+        "400":
+          description: entrada no válida, objeto no válido
+  /orders/{orderId}:
+    put:
+      tags:
+      - admin
+      summary: Nueva orden
+      description: Actualizar order
+      operationId: UpdateOrder
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: orderId
+        in: path
+        description: Id order
+        required: true
+        type: number
+      - in: body
+        name: updateOrder
+        description: Estructura update
+        required: false
+        schema:
+          $ref: '#/definitions/UpdateOrder'
+      responses:
+        "201":
+          description: orden actualizada
+          schema: {}
+        "400":
+          description: entrada no válida, objeto no válido
+    delete:
+      tags:
+      - admin
+      summary: Eliminar orden
+      operationId: deleteOrder
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: orderId
+        in: path
+        description: Id order
+        required: true
+        type: number
+      responses:
+        "201":
+          description: orden eliminada
+        "400":
+          description: entrada no válida, objeto no válido
+  /orders/status/{orderId}:
+    put:
+      tags:
+      - admin
+      summary: Actualizar estado de la orden
+      description: Actualizar estado de la orden
+      operationId: UpdateOrderStatus
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: orderId
+        in: path
+        description: Id order
+        required: true
+        type: number
+      - in: body
+        name: updateOrder
+        description: Estructura update
+        required: false
+        schema:
+          $ref: '#/definitions/UpdateStatusOrder'
+      responses:
+        "201":
+          description: ejemplo de respuesta
+          schema:
+            $ref: '#/definitions/Order'
+        "400":
+          description: entrada no válida, objeto no válido
+  /clients/orders/{userId}:
+    get:
+      tags:
+      - public
+      summary: Consultar ordenes por usuario
+      operationId: getOrdersByUserId
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        description: Id order
+        required: true
+        type: number
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+        "400":
+          description: entrada no válida, objeto no válido
+  /admin/orders/{userId}:
+    get:
+      tags:
+      - admin
+      summary: Consultar ordenes por usuario
+      operationId: adminGetOrdersByUserId
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: userId
+        in: path
+        description: Id order
+        required: true
+        type: number
+      responses:
+        "200":
+          description: ejemplo de respuesta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Order'
+        "400":
+          description: entrada no válida, objeto no válido
+definitions:
+  User:
+    type: object
+    required:
+    - email
+    - name
+    - password
+    - phone
+    - shipping_address
+    properties:
+      id:
+        type: integer
+        format: int64
+      password:
+        type: string
+        example: 321
+      name:
+        type: string
+        example: Manuel Mendoza
+      email:
+        type: string
+        example: manuel@example.com
+      phone:
+        type: string
+        example: 3216547
+      shipping_address:
+        type: string
+        example: 'Calle 50 #30-22'
+      isAdmin:
+        type: integer
+        format: int32
+      isActive:
+        type: integer
+        format: int32
+    xml:
+      name: User
+  Product:
+    type: object
+    properties:
+      name:
+        type: string
+        example: Hamburguesa Clásica
+      description:
+        type: string
+        example: Pan carne tomate y queso
+      price:
+        type: number
+        example: 20000.0
+      image:
+        type: string
+        example: images/hamburguesa.jpg
+      is_available:
+        type: boolean
+    xml:
+      name: Product
+  Details:
+    type: object
+    properties:
+      product_id:
+        type: number
+      product_amount:
+        type: number
+    xml:
+      name: Details
+  Order:
+    type: object
+    properties:
+      user_id:
+        type: number
+        example: 1.0
+      date:
+        type: string
+        example: 2020-11-10 20:00:12
+      description:
+        type: string
+        example: 2 Hamburguesas
+      total_cost:
+        type: number
+        example: 15000.0
+      status:
+        type: number
+        example: 1.0
+      payment_method:
+        type: string
+        example: Efectivo
+  NewOrder:
+    type: object
+    properties:
+      payment_method:
+        type: string
+        example: Efectivo
+      detials:
+        type: array
+        items:
+          $ref: '#/definitions/Details'
+  UpdateOrder:
+    type: object
+    properties:
+      payment_method:
+        type: string
+        example: Efectivo
+      status:
+        type: number
+        example: 3.0
+  UpdateStatusOrder:
+    type: object
+    properties:
+      status:
+        type: number
+        example: 2.0
