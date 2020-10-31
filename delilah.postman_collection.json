@@ -98,13 +98,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3010/users/12",
+					"raw": "http://localhost:3010/admin/users/12",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3010",
 					"path": [
+						"admin",
 						"users",
 						"12"
 					]
@@ -615,6 +616,66 @@
 						"admin",
 						"products",
 						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar usuario por Id - Client",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3010/users/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar usuario por email- Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3010/users/jenny@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"users",
+						"jenny@gmail.com"
 					]
 				}
 			},
