@@ -12,11 +12,11 @@ El objetivo del trabajo es generar el backend de una app de pedidos de comida ll
 
 ### 1. Clonar repositorio
 
-Clonar el repositorio desde [github](https://github.com/).
+Clonar el repositorio desde [github](https://github.com/jcardonac/delilah).
 
 Usar git clone de la siguiente forma
 
-`git clone  .`
+`git clone git@github.com:jcardonac/delilah.git`
 
 ### 2. Descargar dependencias
 
