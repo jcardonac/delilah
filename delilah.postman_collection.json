@@ -1,0 +1,545 @@
+{
+	"info": {
+		"_postman_id": "4dc8ecbf-a0f8-4dc9-b797-d1dae287b552",
+		"name": "delilah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Actualizar estado de la orden",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"status\":  3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/orders/status/55",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"orders",
+						"status",
+						"55"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/users/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"users",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar usuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"password\": \"321\",\r\n        \"name\": \"Gustavo Ramirez Ramirez\",\r\n        \"email\": \"gustavo@gmail.com\",\r\n        \"phone\":  \"3003245874\",\r\n        \"shipping_address\" : \"Kra 20\",\r\n        \"is_admin\":false,\r\n        \"is_active\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/users/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"users",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear orden",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"payment_method\":  \"Efectivo\",\r\n        \"details\" :[\r\n            {\r\n                \"product_id\" : 1,\r\n                \"product_amount\" : 4\r\n            },\r\n            {\r\n                \"product_id\" : 2,\r\n                \"product_amount\" : 4\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar orden",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"payment_method\":  \"Credit Card\",\r\n    \"status\":  3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar orden - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/orders/57",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"orders",
+						"57"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar usuarios - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3010/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar ordenes - Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEiLCJlbWFpbCI6Implbm55QGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzIiwicGhvbmUiOjIxNDc0ODM2NDcsInNoaXBwaW5nX2FkZHJlc3MiOiJLcmEgMjAiLCJpc19hZG1pbiI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE2MDMwNjM5Njl9.hOYlerKL5Gv8MyossWK3PqEdHLg8wqqf4f-lfKr1fGA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar ordenes por usuario - Client",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEgQ29ycmVhIiwiZW1haWwiOiJqZW5ueUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsInBob25lIjoyMTQ3NDgzNjQ3LCJzaGlwcGluZ19hZGRyZXNzIjoiS3JhIDgwIDMyZCIsImlzX2FkbWluIjp0cnVlLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTYwNDExNDA1OX0.J8640nXwZq5SZa4SzV9SNJ0E9WCakoIH1FUdN_St8Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/clients/orders/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"clients",
+						"orders",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar ordenes por usuario - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEgQ29ycmVhIiwiZW1haWwiOiJqZW5ueUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsInBob25lIjoyMTQ3NDgzNjQ3LCJzaGlwcGluZ19hZGRyZXNzIjoiS3JhIDgwIDMyZCIsImlzX2FkbWluIjp0cnVlLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTYwNDExNDA1OX0.J8640nXwZq5SZa4SzV9SNJ0E9WCakoIH1FUdN_St8Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"name\": \"Arroz\",\r\n        \"description\": \"Delicioso Arroz blanco\",\r\n        \"price\": 5000,\r\n        \"image\": \" \",\r\n        \"is_available\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"gustavo2@gmail.com\",\r\n    \"password\" : \"543345345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear producto - Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEgQ29ycmVhIiwiZW1haWwiOiJqZW5ueUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsInBob25lIjoyMTQ3NDgzNjQ3LCJzaGlwcGluZ19hZGRyZXNzIjoiS3JhIDgwIDMyZCIsImlzX2FkbWluIjp0cnVlLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTYwNDExNDA1OX0.J8640nXwZq5SZa4SzV9SNJ0E9WCakoIH1FUdN_St8Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"name\": \"Arroz\",\r\n        \"description\": \"Delicioso Arroz blanco\",\r\n        \"price\": 5000,\r\n        \"image\": \" \",\r\n        \"is_available\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar productos - Client",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEgQ29ycmVhIiwiZW1haWwiOiJqZW5ueUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsInBob25lIjoyMTQ3NDgzNjQ3LCJzaGlwcGluZ19hZGRyZXNzIjoiS3JhIDgwIDMyZCIsImlzX2FkbWluIjp0cnVlLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTYwNDExNDA1OX0.J8640nXwZq5SZa4SzV9SNJ0E9WCakoIH1FUdN_St8Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar productos - Admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6Ikplbm55IENhcmRvbmEgQ29ycmVhIiwiZW1haWwiOiJqZW5ueUBnbWFpbC5jb20iLCJwYXNzd29yZCI6IjEyMyIsInBob25lIjoyMTQ3NDgzNjQ3LCJzaGlwcGluZ19hZGRyZXNzIjoiS3JhIDgwIDMyZCIsImlzX2FkbWluIjp0cnVlLCJpc19hY3RpdmUiOnRydWUsImlhdCI6MTYwNDExNDA1OX0.J8640nXwZq5SZa4SzV9SNJ0E9WCakoIH1FUdN_St8Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3010/admin/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3010",
+					"path": [
+						"admin",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
