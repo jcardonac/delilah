@@ -3,21 +3,14 @@ const jwt = require("jsonwebtoken"),
 
 const autentication = (req, res, next) => {
     let userParam = req.params.userId || '';
-    console.log("RRR userParam",userParam)
     try {
         const token = req.headers.authorization.split(' ')[1],
             verifyToken = jwt.verify(token, signature);
-
-        console.log("RRR verifyToken", verifyToken.id)
-
-
         if (verifyToken.is_active) {
             req.user_token = verifyToken;
             if(!userParam){
                 next();
             } else if(userParam && userParam != verifyToken.id){
-                console.log("RRR entre aca acaso?", userParam!='')
-
                 res.status(401).json("Unauthorized");
             } else {
                 next();
