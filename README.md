@@ -33,5 +33,6 @@ Para correr el servidor ejecute en la raiz de la carpeta del proyecto el comando
 
 ### 5. Empezar a usar
 
-Para màs documentaciòn, consulte por favor el swagger en la raiz del proyecto encontrará el yaml.
-Si desea puede usar también las consultas de postman en este link
+Para màs documentaciòn, consulte por favor el swagger (https://app.swaggerhub.com/apis/jcardonac/delillah/1.0.0).
+Si desea puede usar también las consultas de postman en este link https://documenter.getpostman.com/view/12431452/TVYKbH1f
+
