@@ -8,6 +8,24 @@ function getAllUsers (req, res) {
     User.findAll().then(users => res.json(users))
 }
 
+function getUser(req, res) {
+    const email = req.params.email;
+    User.findOne({
+        where: {
+            email: email,
+        }
+    }).then(users => res.json(users))
+}
+
+function getUserById(req, res) {
+    const userId = req.params.userId;
+    User.findOne({
+        where: {
+            id: userId,
+        }
+    }).then(users => res.json(users))
+}
+
 function createUser (req, res) {
     const email = req.body.email;
 
@@ -117,6 +135,8 @@ function deleteUser(req, res) {
 
 module.exports = {
     getAllUsers,
+    getUser,
+    getUserById,
     createUser,
     deleteUser,
     updateUser,
