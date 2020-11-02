@@ -42,6 +42,27 @@ const autenticationAdmin = (req, res, next) => {
     }
 }
 
+const crearUsuarioAuth = (req, res, next) => {
+    let verifyToken = {};
+
+    try {
+        if (req.headers.authorization) {
+            const token = req.headers.authorization.split(' ')[1];    
+            verifyToken = jwt.verify(token, signature);    
+        }
+
+        if (verifyToken.is_admin) {
+            req.user_token = verifyToken;
+            next();
+		} else {
+            next();
+        }
+       
+    } catch(err) {
+        res.json({'error': 'Problemas al validar usuario. Vuelva a iniciar sesión'}) 
+    }
+}
+
 const is_admin = (req, res, next) => {
     if (req.body.is_admin){
         req.body.is_admin = !req.body.is_admin;
@@ -54,5 +75,6 @@ const is_admin = (req, res, next) => {
 module.exports = {
     autentication,
     autenticationAdmin,
+    crearUsuarioAuth,
     is_admin
 }
