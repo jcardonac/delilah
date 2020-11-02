@@ -2,12 +2,12 @@ const express    = require('express'),
       bodyParser = require('body-parser'),
       app        = express(),
       { usersController, productsController, ordersController } = require('./controllers'),
-      { autentication, autenticationAdmin }   =  require('./middleware');
+      { autentication, autenticationAdmin, crearUsuarioAuth }   =  require('./middleware');
 
 app.use(bodyParser.json());
 
 //Usuarios
-app.post('/users', autenticationAdmin, usersController.createUser);
+app.post('/users', crearUsuarioAuth, usersController.createUser);
 app.put('/admin/users/:email', autenticationAdmin, usersController.updateUser);
 app.patch('/setAdmin/:email', autenticationAdmin, usersController.setAdmin);
 app.get('/users', autenticationAdmin, usersController.getAllUsers);
