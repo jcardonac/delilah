@@ -38,11 +38,26 @@ function createUser (req, res) {
             res.status(409).json("Este email ya tiene una cuenta de usuario creada");
 			return;
         } else {
-            User.create(req.body)
-            .then(user => res.json(user))
-            .catch(error => {
-                res.status(400).json("Error validating input data", error);
-            })
+            const user_token = req.user_token || {};
+            if(user_token.is_admin) {
+                User.create(req.body)
+                .then(user => res.json(user))
+                .catch(error => {
+                    res.status(400).json("Error validating input data", error);
+                })
+            } else {
+                User.create({
+                    password: req.body.password,
+                    name : req.body.name,
+                    email: email,
+                    phone: req.body.phone,
+                    shipping_address: req.body.shipping_address
+                })
+                .then(user => res.json(user))
+                .catch(error => {
+                    res.status(400).json("Error validating input data", error);
+                })
+            }
         }
     }).catch(error => {
         console.log("Error:", error);
